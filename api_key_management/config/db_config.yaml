@@ -1,0 +1,6 @@
+database:
+  host: localhost
+  port: 5432
+  dbname: api_key_management
+  user: user
+  password: password

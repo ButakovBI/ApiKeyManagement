@@ -1,0 +1,30 @@
+components_manager:
+  coro_pool:
+    initial_size: 16
+    max_size: 512
+
+  task_processors:
+    main:
+      thread_name: main-worker
+      worker_threads: 4
+
+  components:
+    logging:
+      type: logging
+      level: info
+      file_path: stdout
+      loggers:
+        default:
+          file_path: stdout
+
+    server:
+      type: server
+      listen_addresses:
+        - 0.0.0.0:8080
+      handler_configs:
+        ping: /ping
+        api:
+          prefix: /api
+          allowed_methods: POST, GET, DELETE
+
+  default_task_processor: main
